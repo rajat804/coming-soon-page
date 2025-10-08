@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Coming Soon — Le Hub It Academy</title>
+
+    <!-- Optional: change font or remove if offline -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #0f1724;
+            --card: #0b1220;
+            --muted: #9aa4b2;
+            --accent: #7c3aed;
+            /* purple */
+            --glass: rgba(255, 255, 255, 0.04);
+            --max-width: 1100px;
+            --radius: 14px;
+            color-scheme: dark;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            height: 100%
+        }
+
+        body {
+            margin: 0;
+            font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+            background:
+                radial-gradient(1200px 600px at 10% 20%, rgba(124, 58, 237, 0.12), transparent 6%),
+                radial-gradient(1000px 500px at 90% 80%, rgba(14, 165, 233, 0.06), transparent 8%),
+                var(--bg);
+            color: #e6eef8;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 32px;
+        }
+
+        .wrap {
+            width: 100%;
+            max-width: var(--max-width);
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+            border-radius: 18px;
+            padding: 32px;
+            display: grid;
+            grid-template-columns: 1fr 420px;
+            gap: 28px;
+            box-shadow: 0 6px 30px rgba(2, 6, 23, 0.6);
+            align-items: center;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        /* Left: main message */
+        .hero {
+            padding: 28px;
+        }
+
+        .brand {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .logo {
+            width: 56px;
+            height: 56px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--accent), #06b6d4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 18px;
+            color: white;
+            box-shadow: 0 6px 18px rgba(124, 58, 237, 0.18);
+        }
+
+        .site-title {
+            font-size: 20px;
+            font-weight: 600;
+            letter-spacing: 0.2px;
+        }
+
+        .subtitle {
+            color: var(--muted);
+            margin-top: 6px;
+            font-size: 13px;
+        }
+
+        h1 {
+            margin: 20px 0 12px;
+            font-size: 36px;
+            line-height: 1.02;
+        }
+
+        p.lead {
+            color: var(--muted);
+            font-size: 16px;
+            margin: 0 0 20px;
+            max-width: 60ch
+        }
+
+        .countdown {
+            display: flex;
+            gap: 12px;
+            margin-top: 18px;
+            flex-wrap: wrap;
+        }
+
+        .countdown .item {
+            min-width: 84px;
+            background: var(--glass);
+            padding: 12px;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .countdown .num {
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .countdown .lbl {
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 6px
+        }
+
+        .note {
+            margin-top: 18px;
+            color: var(--muted);
+            font-size: 13px
+        }
+
+        /* Right: form panel */
+        .panel {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+            padding: 22px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.025);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .panel h3 {
+            margin: 0;
+            font-size: 18px
+        }
+
+        .panel p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 13px
+        }
+
+        .input-row {
+            display: flex;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .input-row input[type="email"] {
+            flex: 1;
+            padding: 12px 14px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            background: transparent;
+            color: inherit;
+            outline: none;
+        }
+
+        .input-row button {
+            padding: 10px 14px;
+            border-radius: 8px;
+            border: 0;
+            background: var(--accent);
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform .12s ease, box-shadow .12s ease;
+        }
+
+        .input-row button:active {
+            transform: translateY(1px)
+        }
+
+        .success {
+            color: #9be7b0;
+            font-size: 13px;
+            margin-top: 8px
+        }
+
+        .socials {
+            display: flex;
+            gap: 10px;
+            margin-top: 12px
+        }
+
+        .socials a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.02);
+            color: inherit;
+            text-decoration: none;
+            border: 1px solid rgba(255, 255, 255, 0.02);
+        }
+
+        footer {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 12px;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        /* Responsive */
+        @media (max-width:880px) {
+            .wrap {
+                grid-template-columns: 1fr;
+                padding: 20px
+            }
+
+            h1 {
+                font-size: 28px
+            }
+
+            .countdown .item {
+                min-width: 72px
+            }
+        }
+
+        @media (max-width:420px) {
+            body {
+                padding: 18px
+            }
+
+            .logo {
+                width: 48px;
+                height: 48px;
+                font-size: 16px;
+                border-radius: 10px
+            }
+
+            .site-title {
+                font-size: 16px
+            }
+
+            .panel {
+                padding: 16px
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="wrap" role="main" aria-labelledby="main-heading">
+        <!-- LEFT -->
+        <section class="hero" aria-hidden="false">
+            <div class="brand" aria-hidden="true">
+                <div class="logo" aria-hidden="true">L</div>
+                <div>
+                    <div class="site-title">lehubitacademy.in</div>
+                    <div class="subtitle">Something awesome is coming soon</div>
+                </div>
+            </div>
+
+            <h1 id="main-heading">We are launching soon</h1>
+            <p class="lead">We're putting the finishing touches on our new site. Subscribe to get notified when we go
+                live — exclusive early access and launch offers for subscribers.</p>
+
+            <div class="countdown" aria-live="polite" id="countdown" title="Countdown to launch">
+                <div class="item">
+                    <div class="num" id="days">00</div>
+                    <div class="lbl">Days</div>
+                </div>
+                <div class="item">
+                    <div class="num" id="hours">00</div>
+                    <div class="lbl">Hours</div>
+                </div>
+                <div class="item">
+                    <div class="num" id="minutes">00</div>
+                    <div class="lbl">Minutes</div>
+                </div>
+                <div class="item">
+                    <div class="num" id="seconds">00</div>
+                    <div class="lbl">Seconds</div>
+                </div>
+            </div>
+
+            <p class="note">Tip: change the target date in the script at the bottom to your real launch date.</p>
+        </section>
+
+        <!-- RIGHT -->
+        <aside class="panel" aria-label="Subscribe panel">
+            <div>
+                <h3>Get notified</h3>
+                <p>Enter your email and we'll ping you when we launch.</p>
+            </div>
+
+            <form id="subscribeForm" novalidate>
+                <div class="input-row">
+                    <input id="email" type="email" placeholder="Your email address" aria-label="Email address" required>
+                    <button type="submit" aria-label="Subscribe now">Notify me</button>
+                </div>
+                <div id="msg" role="status" aria-live="polite" class="success" style="display:none"></div>
+            </form>
+
+            <div class="socials" aria-hidden="false">
+                <!-- simple inline SVG icons -->
+                <a href="#" title="Twitter" aria-label="Twitter">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path
+                            d="M23 3a10.9 10.9 0 0 1-3.14 1.53A4.48 4.48 0 0 0 22.43.36a9.06 9.06 0 0 1-2.88 1.11A4.52 4.52 0 0 0 12 4.77a12.83 12.83 0 0 1-9.3-4.72 4.5 4.5 0 0 0 1.4 6.03A4.48 4.48 0 0 1 2 5.86v.06A4.52 4.52 0 0 0 6.07 10a4.48 4.48 0 0 1-2.04.08 4.52 4.52 0 0 0 4.22 3.14A9.06 9.06 0 0 1 1 18.58a12.8 12.8 0 0 0 6.92 2.03c8.3 0 12.85-6.88 12.85-12.85 0-.2 0-.39-.02-.58A9.2 9.2 0 0 0 23 3z" />
+                    </svg>
+                </a>
+                <a href="#" title="Facebook" aria-label="Facebook">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M18 2h-3a4 4 0 0 0-4 4v3H8v4h3v8h4v-8h3l1-4h-4V6a1 1 0 0 1 1-1h2z" />
+                    </svg>
+                </a>
+                <a href="#" title="Instagram" aria-label="Instagram">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <rect x="2" y="2" width="20" height="20" rx="5" />
+                        <path d="M16 11.37A4 4 0 1 1 11.37 7 4 4 0 0 1 16 11.37z" />
+                        <path d="M17.5 6.5h.01" />
+                    </svg>
+                </a>
+            </div>
+
+            <small style="color:var(--muted); margin-top:auto">We respect your privacy — no spam.</small>
+        </aside>
+
+        <footer>
+            <div>© <span id="year"></span> lehubitacademy.in</div>
+            <div>Built with ♥ — <span style="color:var(--muted)">Coming Soon Page</span></div>
+        </footer>
+    </main>
+
+    <script>
+        // ======== Countdown ========
+        // Instead of fixed date, use "30 days from now"
+        const target = Date.now() + (30 * 24 * 60 * 60 * 1000); // 30 days from now
+
+        function pad(n) { return String(n).padStart(2, '0'); }
+
+        function updateCountdown() {
+            const now = Date.now();
+            const diff = Math.max(0, target - now);
+
+            const s = Math.floor(diff / 1000);
+            const days = Math.floor(s / 86400);
+            const hours = Math.floor(s % 86400 / 3600);
+            const minutes = Math.floor(s % 3600 / 60);
+            const seconds = Math.floor(s % 60);
+
+            document.getElementById('days').textContent = pad(days);
+            document.getElementById('hours').textContent = pad(hours);
+            document.getElementById('minutes').textContent = pad(minutes);
+            document.getElementById('seconds').textContent = pad(seconds);
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // ======== Email subscribe (frontend only) ========
+        const form = document.getElementById('subscribeForm');
+        const emailInput = document.getElementById('email');
+        const msg = document.getElementById('msg');
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const value = emailInput.value.trim();
+
+            if (!value || !/^\S+@\S+\.\S+$/.test(value)) {
+                msg.style.display = 'block';
+                msg.style.color = '#ffb3b3';
+                msg.textContent = 'Please enter a valid email address.';
+                return;
+            }
+
+            // Demo behavior: show a success state. Replace with API call to server.
+            msg.style.display = 'block';
+            msg.style.color = '#9be7b0';
+            msg.textContent = 'Thanks! You are on the list.';
+
+            emailInput.value = '';
+            console.log('Subscribed (demo):', value);
+
+            // TO DO: send to your backend or Mailchimp, ConvertKit, etc.
+        });
+
+        // small nicety: show current year
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>
